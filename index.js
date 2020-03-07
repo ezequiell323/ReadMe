@@ -7,44 +7,70 @@ inquirer
          {
         type: "input",
         name: "github",
-        message: "What is your github username?"
+        message: "What is your Project title?"
       },
     {
       type: "input",
-      name: "ReadMe",
-      message: "Lets create a Read Me file for your applicatipn,Purpose of the Application?"
+      name: "Description",
+      message: "Description of the Application?"
     },
     {
       type: "input",
-      name: "Concept",
-      message: "What is the Concept?"
+      name: "Contents",
+      message: "What is the Table of Contents?"
     },
     {
       type: "input",
-      name: "Techologies",
-      message: "What type of Technologies used?"
+      name: "Installation",
+      message: "What type of Installation?"
     }
     ,
     {
       type: "input",
-      name: "User",
-      message: "What type of User would us this App?"
+      name: "Usage",
+      message: "What Usage?"
+    },
+    {
+      type: "input",
+      name: "License",
+      message: "Which License would you need?"
+    } , 
+    {
+      type: "input",
+      name: "Usage",
+      message: "What would it Contributing?"
     }
   ])
 
+
+
+
+
   .then(data => {
     const userName = data.github;
-    const readME = data.ReadMe;
-    const concept = data.Concept;
-    const techologies = data.Techologies;
-    const appUser = data.User;
+    const Description = data.Description;
+    const Contents = data.Contents;
+    const Installation= data.Installation;
+    const Usage = data.Usage;
+    const License = data.License;
+    const Contributing= data.Contributing;
 
     let pageContent = ` 
-    username: ${userName}
-    Read Me file${readME}
-    Concept${concept}
-    Technologies${techologies}
-    App${appUser}`;
+    Project title:
+    ${userName}
+    Description:
+    ${Description}
+    Table of Contents
+    ${Contents}
+    Installation
+    ${Installation}
+    Usage
+    ${Usage}
+    License
+    ${License}
+    Contributing
+    ${Contributing}
+    `;
 
 fs.writeFile('readme.md',pageContent, (err) => {
  
